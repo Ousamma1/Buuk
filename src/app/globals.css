@@ -1,0 +1,212 @@
+:root {
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-dark: rgba(10, 24, 55, 0.55);
+  --primary: #0e1b3d;
+  --primary-dark: #0a1430;
+  --secondary: #2a3f78;
+  --accent: #52c7ea;
+  --success: #4ad395;
+  --warning: #f9a03f;
+  --danger: #ff5f6d;
+  --border-radius-lg: 20px;
+  --border-radius-md: 16px;
+  --border-radius-sm: 12px;
+  --backdrop-blur: blur(18px);
+  --text: #0a1023;
+  --muted: rgba(10, 16, 35, 0.65);
+  --grid-line: rgba(255, 255, 255, 0.25);
+  --elevated-shadow: 0 40px 80px rgba(10, 27, 61, 0.18);
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "SF Pro Display", "SF Pro Text", "Segoe UI", system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, rgba(14, 27, 61, 0.92), #05070f 60%),
+    linear-gradient(135deg, rgba(10, 24, 55, 0.95), rgba(19, 40, 83, 0.9));
+  color: white;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(110, 138, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(82, 199, 234, 0.12), transparent 45%);
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.glass-panel {
+  background: var(--surface);
+  backdrop-filter: var(--backdrop-blur);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: var(--elevated-shadow);
+  color: var(--text);
+}
+
+.glass-panel.dark {
+  background: var(--surface-dark);
+  color: white;
+  border: 1px solid rgba(82, 199, 234, 0.35);
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.75rem;
+}
+
+.section-title::before {
+  content: "";
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 4px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.card-grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card-grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.fade-divider {
+  height: 1px;
+  margin: 1.4rem 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  opacity: 0.6;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  background: rgba(82, 199, 234, 0.16);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(82, 199, 234, 0.35);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.65rem 0.4rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.table th {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.badge.success {
+  background: rgba(74, 211, 149, 0.18);
+  border: 1px solid rgba(74, 211, 149, 0.4);
+  color: #b4ffdd;
+}
+
+.badge.warning {
+  background: rgba(249, 160, 63, 0.18);
+  border: 1px solid rgba(249, 160, 63, 0.4);
+  color: #ffe2c2;
+}
+
+.badge.danger {
+  background: rgba(255, 95, 109, 0.18);
+  border: 1px solid rgba(255, 95, 109, 0.4);
+  color: #ffc9d0;
+}
+
+.flex-row {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+@media (max-width: 1280px) {
+  .flex-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid.two {
+    grid-template-columns: 1fr;
+  }
+  .card-grid.three {
+    grid-template-columns: 1fr;
+  }
+}
