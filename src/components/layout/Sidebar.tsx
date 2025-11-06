@@ -1,17 +1,20 @@
+import Link from "next/link";
+
 interface NavLink {
   label: string;
+  href: string;
   badge?: string;
 }
 
 const links: NavLink[] = [
-  { label: "Dashboard" },
-  { label: "Surveys", badge: "3 active" },
-  { label: "Assignments", badge: "18 due" },
-  { label: "Surveyors", badge: "12" },
-  { label: "Logic Builder" },
-  { label: "Themes" },
-  { label: "Email Center", badge: "2 queued" },
-  { label: "Audit Trail" },
+  { label: "Dashboard", href: "/" },
+  { label: "Survey Builder", href: "/builder", badge: "Logic ready" },
+  { label: "Survey Preview", href: "/preview", badge: "Live" },
+  { label: "Assignments", href: "#", badge: "18 due" },
+  { label: "Surveyors", href: "#", badge: "12" },
+  { label: "Themes", href: "#" },
+  { label: "Email Center", href: "#", badge: "2 queued" },
+  { label: "Audit Trail", href: "#" },
 ];
 
 export function Sidebar() {
@@ -78,9 +81,9 @@ export function Sidebar() {
 
       <nav style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
         {links.map((link) => (
-          <a
+          <Link
             key={link.label}
-            href="#"
+            href={link.href}
             style={{
               display: "flex",
               alignItems: "center",
@@ -107,7 +110,7 @@ export function Sidebar() {
                 {link.badge}
               </span>
             )}
-          </a>
+          </Link>
         ))}
       </nav>
 
@@ -133,8 +136,8 @@ export function Sidebar() {
             Current focus
           </span>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
-            <button
-              type="button"
+            <Link
+              href="/builder"
               style={{
                 background: "rgba(82,199,234,0.18)",
                 color: "white",
@@ -142,13 +145,13 @@ export function Sidebar() {
                 padding: "0.55rem 0.9rem",
                 borderRadius: "var(--border-radius-sm)",
                 fontWeight: 600,
-                cursor: "pointer",
+                textAlign: "center",
               }}
             >
               Launch Survey Builder
-            </button>
-            <button
-              type="button"
+            </Link>
+            <Link
+              href="/preview"
               style={{
                 background: "rgba(255,255,255,0.08)",
                 color: "rgba(255,255,255,0.9)",
@@ -156,11 +159,11 @@ export function Sidebar() {
                 padding: "0.55rem 0.9rem",
                 borderRadius: "var(--border-radius-sm)",
                 fontWeight: 600,
-                cursor: "pointer",
+                textAlign: "center",
               }}
             >
-              Manage Themes
-            </button>
+              Open Survey Preview
+            </Link>
           </div>
         </div>
       </div>
