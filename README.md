@@ -18,6 +18,16 @@ Key highlights:
 - Email invitation and reminder workflows with bounce tracking.
 - GitLab CI/CD pipelines and containerized services for dev/stage/prod deployments.
 
+## Admin console prototype
+
+The default Next.js app now renders a high-fidelity prototype of the Admin Control Room, showcasing:
+
+- Liquid-glass layout with sidebar navigation, contextual actions, and live-status tiles.
+- Real-time style dashboard cards with assignment, survey comparison, and reminder widgets backed by mock data.
+- A stylised Dubai map heat panel, logic builder snapshot, theme tokens preview, and CSV assignment uploader stub for future integrations.
+
+Use this screen as the visual baseline when implementing the authenticated admin experience.
+
 ## Getting Started
 This project was bootstrapped with Next.js. Install dependencies and start the development server:
 
